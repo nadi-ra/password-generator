@@ -100,9 +100,14 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-
+ var userChoice = prompt("How many characters would like your password to contain?");
+  if (userChoice > 128) {
+     alert("Password length must be less than 129 characters");
+  } else if (userChoice < 8) {
+     alert("Password length must be at least 8 characters")
+  }
 }
-
+generatePassword();
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
