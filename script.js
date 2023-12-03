@@ -89,8 +89,8 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
-function getPasswordOptions() {
-
+function getPasswordOptions(a) {
+  confirm("Click OK to confirm including " + a + ".");
 }
 
 // Function for getting a random element from an array
