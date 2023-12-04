@@ -90,25 +90,28 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 var newArray = [];
+// Function to flatten newArray
+function flatArray() {
+  return newArray.flat();
+};
 function getPasswordOptions(a, arr) {
   if (confirm("Click OK to confirm including " + a + " characters.")) {
     newArray.push(arr);
-  }
+  } else {};
   return newArray;
 }
 
 // Function for getting a random element from an array
-function getRandom(arr, a) {
+function getRandom(b, a) {
   var newArray2 = [];
-  for (let i = 0; i < a; i++) {
-    newArray2 += arr[Math.floor(Math.random() * arr.length)];
-  }
-  console.log(newArray2);
+  for (let i = 0; i < a ; i++) {
+    newArray2 += b[Math.floor(Math.random() * b.length)];
+  };
   return newArray2;
 }
 
 // Function to generate password with user input
-function generatePassword() {
+function generatePassword() { 
   var userChoice = prompt(
     "How many characters would like your password to contain?"
   );
@@ -122,13 +125,11 @@ function generatePassword() {
     getPasswordOptions("lowercase", lowerCasedCharacters);
     getPasswordOptions("uppercase", upperCasedCharacters);
 
-    getRandom(newArray.flat(), userChoice);
-  }
-  return getRandom(newArray.flat(), userChoice);
+  };
+  return getRandom(flatArray(), userChoice);
 }
-generatePassword();
-console.log(newArray);
-// Get references to the #generate element
+
+// // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
