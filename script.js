@@ -98,8 +98,12 @@ function getPasswordOptions(a, arr) {
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+function getRandom(arr, a) {
+  var newArray2 = [];
+ for (let i = 0; i < a; i++) {
+   newArray2 += arr[Math.floor(Math.random() * arr.length)]; 
+ }
+ console.log(newArray2);
 }
 
 
@@ -115,6 +119,8 @@ function generatePassword() {
   getPasswordOptions("numeric", numericCharacters);
   getPasswordOptions("lowercase", lowerCasedCharacters);
   getPasswordOptions("uppercase", upperCasedCharacters); 
+  
+  getRandom(newArray.flat(), userChoice);
 }
 generatePassword();
 console.log(newArray)
