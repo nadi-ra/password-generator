@@ -8,3 +8,6 @@ When visiting the site this is the front-page you will see:
 ![alt text](assets/images/Screenshot%202023-12-04%20192019.png)
 When the button is clicked a series of prompts will showup depending on your input. Below is an image of the first prompt:
 ![alt text](assets/images/Screenshot%202023-12-04%20192110.png)
+
+## License
+Refer to the repo.
