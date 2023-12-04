@@ -89,10 +89,12 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+var newArray = [];
 function getPasswordOptions(a, arr) {
   if (confirm("Click OK to confirm including " + a + " characters.")) {
-     return arr
+      newArray.push(arr);
   }
+  return newArray;
 }
 
 // Function for getting a random element from an array
@@ -109,8 +111,13 @@ function generatePassword() {
   } else if (userChoice < 8) {
      alert("Password length must be at least 8 characters")
   } else { };
+  getPasswordOptions("special", specialCharacters);
+  getPasswordOptions("numeric", numericCharacters);
+  getPasswordOptions("lowercase", lowerCasedCharacters);
+  getPasswordOptions("uppercase", upperCasedCharacters); 
 }
 generatePassword();
+console.log(newArray)
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
