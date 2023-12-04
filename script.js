@@ -103,7 +103,8 @@ function getRandom(arr, a) {
  for (let i = 0; i < a; i++) {
    newArray2 += arr[Math.floor(Math.random() * arr.length)]; 
  }
- console.log(newArray2);
+//  console.log(newArray2);
+ return newArray2;
 }
 
 
@@ -121,8 +122,9 @@ function generatePassword() {
     getPasswordOptions("uppercase", upperCasedCharacters); 
   
     getRandom(newArray.flat(), userChoice)
-  }  
-}
+  }
+  return userChoice;
+} 
 generatePassword();
 console.log(newArray)
 // Get references to the #generate element
