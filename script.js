@@ -114,13 +114,14 @@ function generatePassword() {
      alert("Password length must be less than 129 characters");
   } else if (userChoice < 8) {
      alert("Password length must be at least 8 characters")
-  } else { };
-  getPasswordOptions("special", specialCharacters);
-  getPasswordOptions("numeric", numericCharacters);
-  getPasswordOptions("lowercase", lowerCasedCharacters);
-  getPasswordOptions("uppercase", upperCasedCharacters); 
+  } else if (userChoice < 128 && userChoice > 8) {
+    getPasswordOptions("special", specialCharacters);
+    getPasswordOptions("numeric", numericCharacters);
+    getPasswordOptions("lowercase", lowerCasedCharacters);
+    getPasswordOptions("uppercase", upperCasedCharacters); 
   
-  getRandom(newArray.flat(), userChoice);
+    getRandom(newArray.flat(), userChoice)
+  }  
 }
 generatePassword();
 console.log(newArray)
