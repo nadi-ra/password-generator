@@ -100,6 +100,14 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+// A function to combine all prompts
+function options () {
+  getPasswordOptions("special", specialCharacters);
+  getPasswordOptions("numeric", numericCharacters);
+  getPasswordOptions("uppercase",upperCasedCharacters);
+  getPasswordOptions("special", specialCharacters);
+ }
+
 // Function to generate password with user input
 function generatePassword() {
  var userChoice = prompt("How many characters would like your password to contain?");
@@ -107,7 +115,9 @@ function generatePassword() {
      alert("Password length must be less than 129 characters");
   } else if (userChoice < 8) {
      alert("Password length must be at least 8 characters")
-  } else { }
+  } else { 
+    options();
+  }
 }
 generatePassword();
 // Get references to the #generate element
