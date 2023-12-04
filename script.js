@@ -91,7 +91,7 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions(a, arr) {
   if (confirm("Click OK to confirm including " + a + " characters.")) {
-     return getRandom(arr);
+     return arr
   }
 }
 
@@ -100,13 +100,6 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// A function to combine all prompts
-function options () {
-  getPasswordOptions("special", specialCharacters);
-  getPasswordOptions("numeric", numericCharacters);
-  getPasswordOptions("uppercase",upperCasedCharacters);
-  getPasswordOptions("special", specialCharacters);
- }
 
 // Function to generate password with user input
 function generatePassword() {
@@ -115,9 +108,7 @@ function generatePassword() {
      alert("Password length must be less than 129 characters");
   } else if (userChoice < 8) {
      alert("Password length must be at least 8 characters")
-  } else { 
-    options();
-  }
+  } else { };
 }
 generatePassword();
 // Get references to the #generate element
