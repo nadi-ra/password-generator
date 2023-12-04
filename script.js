@@ -104,29 +104,30 @@ function getPasswordOptions(a, arr) {
 // Function for getting a random element from an array
 function getRandom(b, a) {
   var newArray2 = [];
-  for (let i = 0; i < a ; i++) {
+  for (let i = 0 ; i < a ; i++) {
     newArray2 += b[Math.floor(Math.random() * b.length)];
   };
   return newArray2;
 }
 
 // Function to generate password with user input
-function generatePassword() { 
+function generatePassword() {
   var userChoice = prompt(
     "How many characters would like your password to contain?"
   );
   if (userChoice > 128) {
     alert("Password length must be less than 129 characters");
+    return null;
   } else if (userChoice < 8) {
     alert("Password length must be at least 8 characters");
-  } else if (userChoice < 128 && userChoice > 8) {
-    getPasswordOptions("special", specialCharacters);
-    getPasswordOptions("numeric", numericCharacters);
-    getPasswordOptions("lowercase", lowerCasedCharacters);
-    getPasswordOptions("uppercase", upperCasedCharacters);
-
-  };
-  return getRandom(flatArray(), userChoice);
+    return null;
+  } else if (userChoice <= 128 && userChoice >= 8) {
+      getPasswordOptions("special", specialCharacters);
+      getPasswordOptions("numeric", numericCharacters);
+      getPasswordOptions("lowercase", lowerCasedCharacters);
+      getPasswordOptions("uppercase", upperCasedCharacters);
+     return getRandom(flatArray(), userChoice); 
+  }
 }
 
 // // Get references to the #generate element
