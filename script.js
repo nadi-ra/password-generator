@@ -103,7 +103,7 @@ function getRandom(arr, a) {
  for (let i = 0; i < a; i++) {
    newArray2 += arr[Math.floor(Math.random() * arr.length)]; 
  }
-//  console.log(newArray2);
+ console.log(newArray2);
  return newArray2;
 }
 
@@ -123,7 +123,7 @@ function generatePassword() {
   
     getRandom(newArray.flat(), userChoice)
   }
-  return userChoice;
+  return getRandom(newArray.flat(), userChoice);
 } 
 generatePassword();
 console.log(newArray)
