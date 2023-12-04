@@ -88,45 +88,52 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-// Function to prompt user for password options
+// Variable to store new array
 var newArray = [];
 // Function to flatten newArray
 function flatArray() {
   return newArray.flat();
-};
+}
+// Function to prompt user for password options
 function getPasswordOptions(a, arr) {
   if (confirm("Click OK to confirm including " + a + " characters.")) {
-    newArray.push(arr);
-  } else {};
+    newArray.push(arr); // When OK is clicked on prompt, it is equivilant to true thus character array/s will be stored in newArray variable.
+  } else {
+  }
   return newArray;
 }
 
 // Function for getting a random element from an array
 function getRandom(b, a) {
   var newArray2 = [];
-  for (let i = 0 ; i < a ; i++) {
+  for (let i = 0; i < a; i++) {
     newArray2 += b[Math.floor(Math.random() * b.length)];
-  };
+    // Math.floor and Math.random are used to give a random index which is then added to newArray2 variable.
+  }
   return newArray2;
 }
 
 // Function to generate password with user input
 function generatePassword() {
   var userChoice = prompt(
+    //First prompt
     "How many characters would like your password to contain?"
   );
   if (userChoice > 128) {
+    //Filters large numbers out
     alert("Password length must be less than 129 characters");
-    return null;
+    return null; //Added so that "defined" doesn't display on webpage
   } else if (userChoice < 8) {
+    //Filters smaller
     alert("Password length must be at least 8 characters");
     return null;
   } else if (userChoice <= 128 && userChoice >= 8) {
-      getPasswordOptions("special", specialCharacters);
-      getPasswordOptions("numeric", numericCharacters);
-      getPasswordOptions("lowercase", lowerCasedCharacters);
-      getPasswordOptions("uppercase", upperCasedCharacters);
-     return getRandom(flatArray(), userChoice); 
+    //Criteria prompts show when this is satisfied.
+    getPasswordOptions("special", specialCharacters);
+    getPasswordOptions("numeric", numericCharacters);
+    getPasswordOptions("lowercase", lowerCasedCharacters);
+    getPasswordOptions("uppercase", upperCasedCharacters);
+    return getRandom(flatArray(), userChoice); // Function for returning random string that contains characters depending on userChoice
   }
 }
 
